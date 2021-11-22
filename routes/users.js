@@ -57,7 +57,7 @@ router.get('/about_website', function(req, res) {
 router.get('/staff_list', function(req, res) {
 
   Staff.find()
-      .sort([['name', 'ascending']])
+      .sort([['emp', 'ascending']])
       .exec(function (err, list_staff) {
         if (err) { return next(err); }
         //Successful, so render
