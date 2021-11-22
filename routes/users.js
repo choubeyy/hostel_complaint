@@ -66,13 +66,9 @@ router.get('/staff_list', function(req, res) {
 
 });
 
-router.get('/student_complains', auth.required, function(req, res) {
-  
-});
+router.get('/complains/student_complains', auth.required, controller.student_complains);
 
-router.get('/staff_complains', auth.required, function(req, res) {
-
-});
+router.get('/complains/staff_complains', auth.required, controller.staff_complains);
 
 router.get('/complains', function(req, res) {
   res.render('complains', { title: 'Complains' });

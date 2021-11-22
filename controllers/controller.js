@@ -98,3 +98,29 @@ exports.staff_login = (req, res) => {
       return status(400).info;
     })(req, res, next);
 };
+
+exports.staff_complains = (req, res, next) => {
+  const { payload: { id } } = req;
+
+  return Staff.findById(id)
+    .then((staff) => {
+      if(!staff) {
+        return res.sendStatus(400);
+      }
+
+      return res.json({ staff: staff.toAuthJSON() });
+    });
+};
+
+exports.student_complains = (req, res, next) => {
+  const { payload: { id } } = req;
+
+  return Student.findById(id)
+    .then((student) => {
+      if(!student) {
+        return res.sendStatus(400);
+      }
+
+      return res.json({ student: student.toAuthJSON() });
+    });
+};
