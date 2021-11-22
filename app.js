@@ -15,13 +15,14 @@ const Passport = require('./config/passport');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-const mongoURI = require('./mongoURI');
+const mongoUri = require('./mongoURI');
 
 var app = express();
 
 //Set up mongoose connection
 var mongoose = require('mongoose');
-var mongoDB = mongoURI.getMongoURI();
+var mongoDB = mongoUri;
+mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true});
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
