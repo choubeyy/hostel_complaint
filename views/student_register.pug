@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1=title
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='name') Name:
+      input#name.form-control(type='text' name='name' required='true' value=(undefined===student ? '' : student.name) )
+      label(for='roll') Roll:
+      input#roll.form-control(type='number' name='roll' required='true' value=(undefined===student ? '' : student.roll))
+      label(for='room_no') Room No:
+      input#room_no.form-control(type='text' name='room_no' required='true' value=(undefined===student ? '' : student.room_no))
+      label(for='hash') Password:
+      input#hash.form-control(type='text' name='hash' required='true' value=(undefined===student ? '' : student.hash))
+    button.btn.btn-primary(type='submit') Submit
+  if errors
+    ul
+      for error in errors
+        li!= error.msg

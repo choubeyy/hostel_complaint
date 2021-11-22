@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+
+  table(style='width:100%', border='1')
+    tr
+      th Name
+      th Number
+      th ID
+    each staff in staff_list
+        tr
+        td=staff.name 
+        td=staff.mobile 
+        td=staff.emp
+
+    else
+        p There are no staffers.

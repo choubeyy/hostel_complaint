@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    title=title
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    link(rel="stylesheet", type="text/css", href="style.css")
+    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css")
+    link(href="https://stackpath.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css")
+    script(src="https://code.jquery.com/jquery-3.4.1.slim.min.js")
+    style 
+      include ../public/stylesheets/style.css
+  body    
+    a(href="https://kiit.ac.in/"): img(src="https://cdn.kiit.ac.in/wp-content/uploads/2019/03/KIIT-University-Logo-320.png", srcset="https://cdn.kiit.ac.in/wp-content/uploads/2019/03/KIIT-University-Logo-320.png 1x, https://cdn.kiit.ac.in/wp-content/uploads/2019/03/KIIT-University-Logo-640.png 2x", width="1000",height="100", style="max-height:3800px;;", alt="KIIT Logo", data-retina_logo_url="https://cdn.kiit.ac.in/wp-content/uploads/2019/03/KIIT-University-Logo-640.png", class="fusion-mobile-logo")
+  header
+    nav
+      ul
+        li 
+          a(href='/') Home 
+        li 
+          a(href='/users/about_website') About Website 
+        li 
+          a(href='/users/login') Login 
+        li 
+          a(href='/users/register') Register
+        li 
+          a(href='/users/staff_list') Staff List
+        li 
+          a(href='/users/complains') Complains
+  block content
+    

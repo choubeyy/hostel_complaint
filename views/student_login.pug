@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1=title
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='roll') Roll:
+      input#emp.form-control(type='text' name='erollmp' required='true' value=(undefined===student ? '' : student.roll))
+      label(for='hash') Password:
+      input#hash.form-control(type='text' name='hash' required='true' value=(undefined===student ? '' : student.hash))
+    button.btn.btn-primary(type='submit') Submit
+  if errors
+    ul
+      for error in errors
+        li!= error.msg
