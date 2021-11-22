@@ -66,16 +66,16 @@ router.get('/staff_list', function(req, res) {
 
 });
 
-router.get('/student_complains', function(req, res) {
+router.get('/student_complains', auth.required, function(req, res) {
   
 });
 
-router.get('/staff_complains', function(req, res) {
+router.get('/staff_complains', auth.required, function(req, res) {
 
 });
 
-// router.get('/complains', function(req, res) {
-//   res.redirect('/student/:id/complains');
-// });
+router.get('/complains', function(req, res) {
+  res.render('complains', { title: 'Complains' });
+});
 
 module.exports = router;
