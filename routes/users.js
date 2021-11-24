@@ -74,4 +74,23 @@ router.get('/complains', function(req, res) {
   res.render('complains', { title: 'Complains' });
 });
 
+router.get('/complain_list', function(req, res) {
+
+  Complaint.find()
+    .sort([['ascending']])
+    .exec(function (err, list_complaint) {
+      if (err) { return next(err); }
+      //Successful, so render
+      res.render('complain_list', { title: 'Complaint List', complain_list: list_complaint });
+  });
+
+});
+
+router.get('/complain_form', function(req, res) {
+  res.render('complain_form', { title: 'Submit your complaint' });
+});
+
+router.post('/complain_form', controller.complain_form);
+
+
 module.exports = router;

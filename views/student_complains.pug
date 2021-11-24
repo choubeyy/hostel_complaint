@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1=title
+  form(method='POST' action='')
+    div.form-group
+      label(for='room_no') Room Number:
+      input#emp.form-control(type='text' name='room_no' required='true' value=(undefined===student ? '' : student.roll))
+      label(for='complains') Complain:
+      input#hash.form-control(type='text' name='complains' required='true' value=(undefined===student ? '' : student.hash))
+    button.btn.btn-primary(type='submit') Submit
+  if errors
+    ul
+      for error in errors
+        li!= error.msg

@@ -113,14 +113,17 @@ exports.staff_complains = (req, res, next) => {
 };
 
 exports.student_complains = (req, res, next) => {
-  const { payload: { id } } = req;
 
-  return Student.findById(id)
-    .then((student) => {
-      if(!student) {
-        return res.sendStatus(400);
-      }
+};
 
-      return res.json({ student: student.toAuthJSON() });
+exports.complain_form = (req, res, next) => {
+    var st = Student.find(Number(req.body.roll));
+    var complaint = new Complaint({
+      query: req.body.query,
+      student: st
     });
+
+    complaint.save();
+    // Successful, so render.
+    res.redirect('/users/complain_list');
 };
